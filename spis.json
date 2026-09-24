@@ -1,0 +1,14 @@
+{
+  "przedmiot": "Informatyka — zadania",
+  "autor": "Michał Składanowski",
+  "klasa": "klasa 2 K/P",
+  "zalozona": "6 września 2026",
+
+  "zadania": [
+    {
+      "plik": "01-czynnosc3.html",
+      "tytul": "Czynność 3",
+      "opis": "Napis „Michał” siedem razy, do prawej, na niebiesko, od największego rozmiaru czcionki do najmniejszego."
+    }
+  ]
+}

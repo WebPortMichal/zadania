@@ -1,0 +1,384 @@
+/* ==========================================================================
+   Zadania z informatyki - style strony.
+   Kolory trzymane w zmiennych na :root, wiec zmiana motywu to zmiana
+   kilku linii, a nie polowy pliku.
+   ========================================================================== */
+
+:root {
+  --bg: #EDF0F5;
+  --surface: #FFFFFF;
+  --surface-2: #E3E8F0;
+  --line: #C9D2DF;
+  --line-soft: #E0E5EE;
+  --ink: #0F141B;
+  --ink-2: #37414F;
+  --muted: #626E7E;
+  --accent: #2B4E9B;
+  --accent-soft: #DEE6F7;
+  --ok: #2C6B4C;
+  --ok-soft: #DBEDE3;
+  --wait: #8A5310;
+  --wait-soft: #F6E9D5;
+  --code-bg: #F3F6FB;
+  --code-line: #A8B4C6;
+
+  --kw: #8A3A8F;
+  --str: #2C6B4C;
+  --num: #A34A16;
+  --com: #77838F;
+  --fn: #2B4E9B;
+
+  --r: 10px;
+  color-scheme: light;
+}
+
+/* Ciemny motyw systemowy */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0C1117;
+    --surface: #121A22;
+    --surface-2: #1A232D;
+    --line: #29343F;
+    --line-soft: #1F2831;
+    --ink: #E5ECF4;
+    --ink-2: #B5C1CE;
+    --muted: #8694A3;
+    --accent: #7FA8F7;
+    --accent-soft: #17243A;
+    --ok: #6FBF95;
+    --ok-soft: #14261E;
+    --wait: #D8A163;
+    --wait-soft: #2A2015;
+    --code-bg: #0E161E;
+    --code-line: #46525F;
+
+    --kw: #D799DC;
+    --str: #7FC79E;
+    --num: #E3A06B;
+    --com: #6C7A88;
+    --fn: #7FA8F7;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #0C1117;
+  --surface: #121A22;
+  --surface-2: #1A232D;
+  --line: #29343F;
+  --line-soft: #1F2831;
+  --ink: #E5ECF4;
+  --ink-2: #B5C1CE;
+  --muted: #8694A3;
+  --accent: #7FA8F7;
+  --accent-soft: #17243A;
+  --ok: #6FBF95;
+  --ok-soft: #14261E;
+  --wait: #D8A163;
+  --wait-soft: #2A2015;
+  --code-bg: #0E161E;
+  --code-line: #46525F;
+
+  --kw: #D799DC;
+  --str: #7FC79E;
+  --num: #E3A06B;
+  --com: #6C7A88;
+  --fn: #7FA8F7;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 15.5px;
+  line-height: 1.62;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+
+/* ---------- metryczka ---------- */
+
+.metryczka {
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+}
+.metryczka-tresc {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 20px 26px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px 26px;
+}
+.przedmiot {
+  font-family: Newsreader, Georgia, serif;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -.01em;
+}
+.autor {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12.5px;
+  color: var(--muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 14px;
+}
+
+/* ---------- uklad ---------- */
+
+.uklad {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 30px 26px 90px;
+  display: grid;
+  grid-template-columns: 232px minmax(0, 1fr);
+  gap: 46px;
+  align-items: start;
+}
+
+/* ---------- spis zadan ---------- */
+
+.spis { position: sticky; top: 26px; }
+
+.spis-tytul {
+  font-size: 11px; text-transform: uppercase; letter-spacing: .11em;
+  color: var(--muted); font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.spis-lista { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 1px; }
+
+.spis-link {
+  display: grid;
+  grid-template-columns: 26px minmax(0, 1fr);
+  gap: 10px;
+  align-items: baseline;
+  padding: 8px 10px;
+  border-radius: 7px;
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 14px;
+  border-left: 2px solid transparent;
+}
+.spis-link:hover { background: var(--surface); color: var(--ink); }
+.spis-link[aria-current="page"] {
+  background: var(--surface);
+  color: var(--ink);
+  border-left-color: var(--accent);
+  font-weight: 600;
+}
+.spis-nr {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11.5px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+}
+.spis-link[aria-current="page"] .spis-nr { color: var(--accent); }
+
+.spis-osobno { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line-soft); }
+
+/* ---------- tresc ---------- */
+
+.tresc { min-width: 0; }
+
+.eyebrow {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+h1 {
+  font-family: Newsreader, Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(29px, 4.4vw, 40px);
+  line-height: 1.12;
+  letter-spacing: -.015em;
+  margin: 0 0 16px;
+  text-wrap: balance;
+  max-width: 22ch;
+}
+
+h2 {
+  font-family: Newsreader, Georgia, serif;
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: -.008em;
+  margin: 38px 0 12px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+h3 { font-size: 15px; font-weight: 600; margin: 22px 0 7px; }
+
+p, li { max-width: 68ch; }
+p { margin: 0 0 13px; }
+ul, ol { margin: 0 0 13px; padding-left: 22px; }
+li { margin-bottom: 5px; }
+
+.wstep { font-size: 17px; color: var(--ink-2); max-width: 62ch; margin-bottom: 26px; }
+
+/* ---------- kod ---------- */
+
+.kod-blok {
+  background: var(--code-bg);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r);
+  margin: 0 0 15px;
+  overflow: hidden;
+}
+.kod-pasek {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--line-soft);
+  background: var(--surface-2);
+}
+.kod-plik {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 12px; color: var(--ink-2);
+}
+/* Podpis autora w pasku kazdego bloku kodu - jedzie razem z kodem
+   na zrzucie ekranu i na wydruku. */
+.kod-znak {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+/* Wynik dzialania kodu - prawdziwa strona renderowana w ramce.
+   Bialy spod, bo strona z zadania nie ustawia wlasnego tla. */
+.ramka {
+  display: block;
+  width: 100%;
+  height: 460px;
+  border: 0;
+  background: #FFFFFF;
+}
+
+pre {
+  margin: 0;
+  padding: 14px 14px 14px 0;
+  overflow-x: auto;
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 13px;
+  line-height: 1.66;
+  tab-size: 4;
+  /* Utrudnia zaznaczenie myszka. Nie jest zabezpieczeniem - kod i tak
+     siedzi w zrodle strony - ale zatrzymuje kopiowanie z rozpedu. */
+  user-select: none;
+  -webkit-user-select: none;
+}
+pre code { display: block; }
+.linia { display: block; padding-left: 14px; }
+.linia::before {
+  content: attr(data-nr);
+  display: inline-block;
+  width: 30px;
+  margin-left: -14px;
+  margin-right: 14px;
+  text-align: right;
+  color: var(--code-line);
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+}
+
+code.w-tekscie {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: .88em;
+  background: var(--surface-2);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+.t-kw { color: var(--kw); font-weight: 500; }
+.t-str { color: var(--str); }
+.t-num { color: var(--num); }
+.t-com { color: var(--com); font-style: italic; }
+.t-fn { color: var(--fn); }
+
+/* ---------- komunikat o bledzie / pustce ---------- */
+
+.puste {
+  border: 1px dashed var(--line);
+  border-radius: var(--r);
+  padding: 22px;
+  color: var(--muted);
+  background: var(--surface);
+  max-width: 68ch;
+}
+.puste p:last-child { margin-bottom: 0; }
+
+/* ---------- kafelki na stronie glownej ---------- */
+
+.karty { display: grid; grid-template-columns: repeat(auto-fill, minmax(238px, 1fr)); gap: 12px; margin-bottom: 8px; }
+.karta {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--r);
+  padding: 15px 16px;
+  text-decoration: none;
+  color: inherit;
+}
+.karta:hover { border-color: var(--accent); }
+.karta-nr {
+  font-family: "JetBrains Mono", ui-monospace, monospace;
+  font-size: 11.5px; color: var(--muted); letter-spacing: .06em;
+}
+.karta-tytul { font-weight: 600; margin: 5px 0 9px; line-height: 1.35; }
+.karta-opis { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.5; }
+
+/* ---------- nawigacja dolna ---------- */
+
+.prawa {
+  margin-top: 26px;
+  font-size: 12px;
+  line-height: 1.55;
+  color: var(--muted);
+  max-width: 68ch;
+}
+.prawa strong { color: var(--ink-2); font-weight: 600; }
+
+.nawigacja {
+  display: flex; justify-content: space-between; gap: 14px;
+  margin-top: 52px; padding-top: 18px;
+  border-top: 1px solid var(--line-soft);
+}
+.naw-link { color: var(--accent); text-decoration: none; font-size: 14px; }
+.naw-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+a:focus-visible, button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+
+@media (max-width: 860px) {
+  .uklad { grid-template-columns: 1fr; gap: 26px; padding: 22px 17px 70px; }
+  .spis { position: static; }
+  .spis-lista { flex-direction: row; flex-wrap: wrap; }
+  .spis-link { border-left: none; border-bottom: 2px solid transparent; padding: 6px 10px; }
+  .spis-link[aria-current="page"] { border-left-color: transparent; border-bottom-color: var(--accent); }
+}
+
+@media print {
+  .spis, .nawigacja { display: none !important; }
+  .uklad { display: block; max-width: none; padding: 0; }
+  body { background: #fff; color: #000; font-size: 11pt; }
+  .kod-blok, .karta, .puste { border: 1px solid #999; }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Zadania z informatyki</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Newsreader:opsz,wght@6..72,400;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
+
+<link rel="stylesheet" href="styl.css">
+</head>
+<body>
+
+<header class="metryczka">
+  <div class="metryczka-tresc">
+    <div class="przedmiot" id="przedmiot">Informatyka — zadania</div>
+    <div class="autor">
+      <span id="autor"></span>
+      <span id="klasa"></span>
+      <span id="rok"></span>
+    </div>
+  </div>
+</header>
+
+<div class="uklad">
+
+  <nav class="spis" aria-label="Spis zadań">
+    <p class="spis-tytul">Spis zadań</p>
+    <ul class="spis-lista" id="spisLista"></ul>
+    <div class="spis-osobno">
+      <a class="spis-link" href="#" id="drukuj"><span class="spis-nr">↧</span><span>Drukuj / PDF</span></a>
+    </div>
+  </nav>
+
+  <main class="tresc" id="tresc">
+
+    <!-- Strona główna: kafelki ze wszystkimi zadaniami -->
+    <article class="zadanie" id="start">
+      <p class="eyebrow">Informatyka</p>
+      <h1>Zadania z informatyki</h1>
+      <div class="karty" id="karty"></div>
+    </article>
+
+    <!-- Tu ląduje wybrane zadanie. Buduje je strona.js -->
+    <article class="zadanie" id="zadanie" hidden></article>
+
+    <nav class="nawigacja" id="nawigacja"></nav>
+
+    <p class="prawa" id="prawa"></p>
+
+  </main>
+</div>
+
+<script src="strona.js"></script>
+</body>
+</html>
