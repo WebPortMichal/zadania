@@ -1,45 +1,59 @@
 # Zadania z informatyki
 
 Strona z zadaniami — Michał Składanowski, klasa 2 K/P.
+Na żywo: **https://webportmichal.github.io/zadania/**
+
 Każde zadanie to zwykły plik HTML w folderze `zadania/`. Strona pokazuje go
 dwa razy: jako kolorowany kod z numeracją linii i jako żywy podgląd w ramce.
 
 ## Jak dodać nowe zadanie
 
-1. Wrzuć plik do folderu `zadania/`, np. `zadania/02-tabela.html`.
+1. Zapisz zadanie jako plik HTML w folderze `zadania/`, np. `02-tabela.html`.
    Nazwa: numer, myślnik, krótki tytuł, bez polskich znaków i spacji.
-2. Dopisz jeden wpis w `spis.json`, na końcu listy `zadania`:
+2. Odśwież stronę. **To wszystko.**
 
-```json
-{
-  "plik": "02-tabela.html",
-  "tytul": "Tabela z ocenami",
-  "opis": "Krótko, o co chodziło w zadaniu. Można zostawić puste."
-}
+Spis po lewej, kafelek na stronie głównej, numeracja i strzałki
+„poprzednie / następne" biorą się same z zawartości folderu.
+
+**Tytuł zadania** strona bierze ze znacznika `<title>` w pliku:
+
+```html
+<title>Tabela z ocenami</title>
 ```
 
-Pamiętaj o przecinku po poprzednim wpisie. To wszystko — spis po lewej,
-kafelki na stronie głównej i nawigacja „poprzednie / następne" zrobią się same.
+**Opis** (ten szary tekst pod tytułem) jest nieobowiązkowy. Jeśli chcesz go dodać,
+wpisz w pliku zadania komentarz:
+
+```html
+<!-- opis: Tabela z obramowaniem, trzy kolumny. -->
+```
+
+**Kolejność** ustala się po nazwie pliku, dlatego warto zaczynać ją od numeru:
+`01-`, `02-`, `03-`…
 
 ## Jak to obejrzeć u siebie
 
-Podwójny klik na `index.html` **nie zadziała** — przeglądarka blokuje
-wczytywanie plików z dysku. Zamiast tego kliknij dwa razy na **`podglad.cmd`**
-(otworzy stronę na http://localhost:8765). Wymaga zainstalowanego Node.js.
+Kliknij dwa razy na **`podglad.cmd`** — otworzy stronę na http://localhost:8765
+Dopisujesz zadanie → odświeżasz stronę (F5) → widzisz zmianę od razu.
 
-## Publikacja na GitHub Pages
+(Podwójny klik na `index.html` **nie zadziała** — przeglądarka blokuje
+wczytywanie plików z dysku. Musi iść przez `podglad.cmd`.)
 
-W repozytorium: **Settings → Pages → Source: Deploy from a branch →
-Branch: `main`, folder `/ (root)` → Save**. Po minucie strona jest pod
-`https://<login>.github.io/<nazwa-repo>/`.
+## Jak wrzucić zmiany na stronę w internecie
+
+Kliknij dwa razy na **`wyslij.cmd`**. Po około minucie zmiana jest widoczna
+pod https://webportmichal.github.io/zadania/
 
 ## Co jest w plikach
 
 | plik | do czego |
 |---|---|
-| `index.html` | szkielet strony, same puste miejsca |
+| `zadania/` | właściwe zadania, zwykłe pliki HTML — tu pracujesz |
+| `podglad.cmd` | podgląd strony u siebie (wymaga Node.js) |
+| `wyslij.cmd` | wysłanie zmian na stronę w internecie |
+| `dane.json` | autor, klasa, nazwa przedmiotu |
+| `index.html` | szkielet strony |
 | `styl.css` | wygląd, kolory w zmiennych na górze pliku |
 | `strona.js` | wczytywanie zadań, kolorowanie składni, nawigacja |
-| `spis.json` | lista zadań + dane do metryczki (autor, klasa) |
-| `zadania/` | właściwe zadania, zwykłe pliki HTML |
-| `podglad.cmd` | podgląd strony u siebie przed wrzuceniem na GitHuba |
+| `zbuduj-spis.js` | składa `spis.json` z zawartości folderu `zadania/` |
+| `spis.json` | wynik powyższego — **nie edytuj ręcznie**, i tak się nadpisze |

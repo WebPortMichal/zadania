@@ -21,9 +21,25 @@ const TYPY = {
   ".svg": "image/svg+xml"
 };
 
+const zbudujSpis = require("./zbuduj-spis");
+
 http.createServer(function (req, res) {
   let adres = decodeURIComponent(req.url.split("?")[0]);
   if (adres === "/") adres = "/index.html";
+
+  // Spis zadan skladamy na biezaco z zawartosci folderu zadania/.
+  // Dzieki temu wystarczy wrzucic nowy plik i odswiezyc strone.
+  if (adres === "/spis.json") {
+    try {
+      const dane = zbudujSpis();
+      res.writeHead(200, { "Content-Type": "application/json; charset=utf-8", "Cache-Control": "no-cache" });
+      res.end(JSON.stringify(dane));
+    } catch (e) {
+      res.writeHead(500, { "Content-Type": "text/plain; charset=utf-8" });
+      res.end("Blad przy budowaniu spisu: " + e.message);
+    }
+    return;
+  }
 
   // zadne wyjscie poza katalog projektu
   const plik = path.join(KATALOG, path.normalize(adres).replace(/^(\.\.[/\\])+/, ""));
