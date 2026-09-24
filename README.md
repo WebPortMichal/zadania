@@ -24,13 +24,8 @@ kafelki na stronie głównej i nawigacja „poprzednie / następne" zrobią się
 ## Jak to obejrzeć u siebie
 
 Podwójny klik na `index.html` **nie zadziała** — przeglądarka blokuje
-wczytywanie plików z dysku. Odpal lokalny serwer w folderze projektu:
-
-```
-python -m http.server
-```
-
-i wejdź na http://localhost:8000
+wczytywanie plików z dysku. Zamiast tego kliknij dwa razy na **`podglad.cmd`**
+(otworzy stronę na http://localhost:8765). Wymaga zainstalowanego Node.js.
 
 ## Publikacja na GitHub Pages
 
@@ -47,3 +42,4 @@ Branch: `main`, folder `/ (root)` → Save**. Po minucie strona jest pod
 | `strona.js` | wczytywanie zadań, kolorowanie składni, nawigacja |
 | `spis.json` | lista zadań + dane do metryczki (autor, klasa) |
 | `zadania/` | właściwe zadania, zwykłe pliki HTML |
+| `podglad.cmd` | podgląd strony u siebie przed wrzuceniem na GitHuba |
