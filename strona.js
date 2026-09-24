@@ -168,7 +168,7 @@
     // sandbox="" blokuje skrypty w srodku - to ma byc podglad, nie aplikacja.
     var ramka = document.createElement("iframe");
     ramka.className = "ramka";
-    ramka.title = "Wynik dzialania kodu";
+    ramka.title = "Wynik działania kodu";
     ramka.setAttribute("sandbox", "");
     ramka.srcdoc = zrodlo;
     blok.appendChild(ramka);
@@ -177,12 +177,12 @@
 
   function blokBledu(plik, blad) {
     var d = el("div", "puste");
-    d.appendChild(el("p", null, "Nie udalo sie wczytac pliku zadania/" + plik + "."));
+    d.appendChild(el("p", null, "Nie udało się wczytać pliku zadania/" + plik + "."));
     d.appendChild(el("p", null,
-      "Jesli otwierasz strone podwojnym klikiem z dysku, przegladarka blokuje " +
-      "wczytywanie plikow. Wrzuc repozytorium na GitHub Pages albo uruchom " +
+      "Jeśli otwierasz stronę podwójnym klikiem z dysku, przeglądarka blokuje " +
+      "wczytywanie plików. Wrzuć repozytorium na GitHub Pages albo uruchom " +
       "lokalny serwer: python -m http.server"));
-    if (blad) d.appendChild(el("p", null, "Szczegoly: " + blad));
+    if (blad) d.appendChild(el("p", null, "Szczegóły: " + blad));
     return d;
   }
 
@@ -195,7 +195,7 @@
     var a = el("a", "spis-link");
     a.href = "#";
     a.appendChild(el("span", "spis-nr", "—"));
-    a.appendChild(el("span", null, "Strona glowna"));
+    a.appendChild(el("span", null, "Strona główna"));
     li.appendChild(a);
     elSpis.appendChild(li);
 
@@ -231,7 +231,7 @@
         var a = el("a", "naw-link");
         if (i === -1) {
           a.href = "#";
-          a.textContent = "← Strona glowna";
+          a.textContent = "← Strona główna";
         } else {
           a.href = "#" + slug(DANE.zadania[i].plik);
           a.textContent = wstecz
@@ -321,10 +321,10 @@
         : (d.getFullYear() - 1) + "/" + d.getFullYear());
 
     var p = document.getElementById("prawa");
-    p.textContent = "Praca wlasna — ";
+    p.textContent = "Praca własna — ";
     var mocno = el("strong", null, AUTOR + ", " + KLASA);
     p.appendChild(mocno);
-    if (DANE.zalozona) p.appendChild(document.createTextNode(". Strona zalozona " + DANE.zalozona + "."));
+    if (DANE.zalozona) p.appendChild(document.createTextNode(". Strona założona " + DANE.zalozona + "."));
     else p.appendChild(document.createTextNode("."));
   }
 
