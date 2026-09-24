@@ -355,11 +355,6 @@
 
   /* ---------- start ---------- */
 
-  document.getElementById("drukuj").addEventListener("click", function (e) {
-    e.preventDefault();
-    window.print();
-  });
-
   window.addEventListener("hashchange", function () {
     if (DANE) pokaz(location.hash.slice(1));
   });

@@ -184,8 +184,6 @@ img { max-width: 100%; }
 }
 .spis-link[aria-current="page"] .spis-nr { color: var(--accent); }
 
-.spis-osobno { margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--line-soft); }
-
 /* ---------- tresc ---------- */
 
 .tresc { min-width: 0; }
