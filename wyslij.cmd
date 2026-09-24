@@ -14,8 +14,7 @@ echo  Wysylam na GitHuba...
 git add -A
 git diff --cached --quiet && (echo  Nic sie nie zmienilo - nie ma czego wysylac. & goto koniec)
 
-for /f "tokens=1-3 delims=/ " %%a in ("%date%") do set DZIS=%%a-%%b-%%c
-git -c user.name="Michal Skladanowski" -c user.email="mariuszskladanowski@gmail.com" commit -q -m "Aktualizacja zadan %DZIS%"
+git -c user.name="Michal Skladanowski" -c user.email="mariuszskladanowski@gmail.com" commit -q -m "Aktualizacja zadan %date%"
 if errorlevel 1 goto blad
 
 git push -q
